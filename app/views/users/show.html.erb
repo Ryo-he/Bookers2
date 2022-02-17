@@ -1,0 +1,12 @@
+<h1>User Info</h1>
+<p>name</p>
+<p>introduction</p>
+
+<h1>New Book</h1>
+<%= form_with model: @book, url: '/book_users', local:true do |f| %>
+<p>Title</p>
+<%= f.text_field :title %>
+<p>opinion</p>
+<%= f.text_area :opinion %>
+<%= f.submit 'create book' %>
+<% end %>
