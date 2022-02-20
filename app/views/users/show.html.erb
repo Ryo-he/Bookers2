@@ -1,12 +1,28 @@
 <h1>User Info</h1>
+<%= image_tag @user.get_profile_image(100,100) %>
 <p>name</p>
+<%= @user.name %>
 <p>introduction</p>
+<%= link_to 'edit',edit_user_path %>
 
 <h1>New Book</h1>
-<%= form_with model: @book, url: '/book_users', local:true do |f| %>
+<%= form_with model: @book do |f| %>
 <p>Title</p>
 <%= f.text_field :title %>
 <p>opinion</p>
 <%= f.text_area :opinion %>
 <%= f.submit 'create book' %>
 <% end %>
+
+
+<h1>Books</h1>
+<p>Title</p>
+<p>Opinion</p>
+<% @books.each do |book| %>
+<%= image_tag current_user.get_profile_image(100,100) %>
+<%= link_to book_path(book.id) do %>
+<%= book.title %>
+<% end %>
+<%= book.opinion %>
+<% end %>
+
