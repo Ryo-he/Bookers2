@@ -1,8 +1,20 @@
+<% if @book.errors.any? %>
+<% @book.errors.count%>errors prohibited this book from being saved:
+<ul class>
+  <% @book.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+  </ul>
+  <% end %>
+<div class = "col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 <h1>Editing Book</h1>
-<%= form_with model: @book, url: update_book_path(@book.id),method: :patch, local:true do |f| %>
+<%= form_with model: @book, local: true do |f| %>
 <p>title</p>
 <%= f.text_field :title %>
 <p>opinion</p>
 <%= f.text_area :opinoin %>
-<%= f.submit 'Update book' %>
+<br>
+<input type="submit" name="commit" value="Update User" class="btn btn-secondary" data-disable-with="Update User">
+<br><%= link_to 'Show',book_path(@book.id) %>|<%= link_to 'Back',books_path %>
 <% end %>
+</div>

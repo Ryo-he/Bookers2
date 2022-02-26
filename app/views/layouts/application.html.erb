@@ -5,30 +5,40 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+　<script src="https://kit.fontawesome.com/0159f84572.js" crossorigin="anonymous"></script>　　
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header>
+    <header class = "bg-dark text-light">
+    <nav class = "navbar">
     <% if user_signed_in? %>
-      <%= link_to "Bookers", '/top' %>
-      <%= link_to "Homes", '/top' %>
-      <%= link_to "Users",users_path %>
-      <%= link_to "Books", books_path %>
-      <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+      <a class="navbar-brand" href="/"><span>Bookers</span></a>
+      <div class ="pull-right p-2">
+      <i class="fa-solid fa-house-chimney"></i><%= link_to "Home", '/top' %>
+   　　<i class="fa-solid fa-users"></i><%= link_to "Users",users_path %>
+      <i class="fa-solid fa-book-open"></i><%= link_to "Books", books_path %>
+      <i class="fa-solid fa-right-from-bracket"></i><%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+      </div>
     <% else %>
       <%= link_to "Bookers", '/top' %>
-      <%= link_to "Homes", '/top' %>
-      <%= link_to "About",'/about' %>
-      <%= link_to "Sign Up", new_user_registration_path %>
-      <%= link_to "Log In", new_user_session_path %>
+      <div class ="pull-right p-2">
+      <i class="fa-solid fa-house-chimney"></i><%= link_to "Home", '/top' %>
+      <i class="fa-solid fa-link"></i><%= link_to "About",'/about' %>
+      <i class="fa-solid fa-user-plus"></i> <%= link_to "Sign Up", new_user_registration_path %>
+      <i class="fa-solid fa-right-to-bracket"></i><%= link_to "Log In", new_user_session_path %>
+      </div>
     <% end %>
+    </nav>
+    </nav>
     </header>
+    <div class="message">
+    <%=flash[:notice]%>
+    </div>
     <%= yield %>
   </body>
-  <footer>
+  <footer class ="text-center mt-5">
       CopyRight Infratop.inc
   </footer>
 </html>
