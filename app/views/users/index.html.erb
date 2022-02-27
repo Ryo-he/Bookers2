@@ -27,13 +27,17 @@
 </tr>
 </tbody>
 </table>
-<div class = "btn btn-outline-secondary btn-block">
-<%= link_to edit_user_path(current_user.id) do %>
-<i class="fa-solid fa-user-gear"></i>
-<% end %>
-</div>
+<a class="btn btn-outline-secondary btn-block fas fa-user-cog" href="/users/:id/edit"></a>
 
-<%= render 'books/newform', book: @book %>
+
+<h1>New Book</h1>
+<%= form_with model: @book, local: true do |f| %>
+<p>Title</p>
+<%= f.text_field :title %>
+<p>opinion</p>
+<%= f.text_area :opinion %>
+<%= f.submit 'create book' %>
+<% end %>
 
 </div>
 
@@ -67,4 +71,4 @@
 </div>
 </div>
 </div>
-</div
+</div>

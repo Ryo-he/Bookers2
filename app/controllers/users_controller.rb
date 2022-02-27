@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   params.require(:user).permit(:name, :introduction, :profile_image)
   end
   def book_params
-  params.requrire(:book).permit(:title, :opinion)
+  params.requrire(:book).permit(:title, :body)
   end
 end
 

@@ -27,10 +27,19 @@
 </tr>
 </tbody>
 </table>
+<a class="btn btn-outline-secondary btn-block fas fa-user-cog" href="/users/:id/edit"></a>
 
+<h1>New Book</h1>
+<%= form_with model: @book, local: true do |f| %>
+<p>Title</p>
+<%= f.text_field :title %>
+<p>opinion</p>
+<%= f.text_area :opinion %>
+<%= f.submit 'create book' %>
+<% end %>
 
-<%= render 'books/newform', book: @book %>
 </div>
+
 <div class = "col-md-8 off-set-md-1">
 <h1 class = "ml-5">Books</h1>
 <table class="table">
@@ -51,7 +60,7 @@
 <%= book.title %>
 <% end %>
 </td>
-<td><%= book.opinion %>
+<td><%= book.body %>
 <% end %>
 </td>
 </tr>
@@ -60,5 +69,5 @@
 </div>
 </div>
 </div>
-</div
+</div>
 

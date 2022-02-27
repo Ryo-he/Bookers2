@@ -5,30 +5,29 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-　<script src="https://kit.fontawesome.com/0159f84572.js" crossorigin="anonymous"></script>　　
+　  <script src="https://kit.fontawesome.com/0159f84572.js" crossorigin="anonymous"></script>　　
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header class = "bg-dark text-light">
+    <header class = "bg-dark">
     <nav class = "navbar">
     <% if user_signed_in? %>
-      <a class="navbar-brand" href="/"><span>Bookers</span></a>
-      <div class ="pull-right p-2">
-      <i class="fa-solid fa-house-chimney"></i><%= link_to "Home", '/top' %>
-   　　<i class="fa-solid fa-users"></i><%= link_to "Users",users_path %>
-      <i class="fa-solid fa-book-open"></i><%= link_to "Books", books_path %>
-      <i class="fa-solid fa-right-from-bracket"></i><%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-      </div>
+    <div class = "container">
+      <a class="navbar-brand text-light" href="/">Bookers</a>
+      <a class="fas fa-home nav-link text-light" href="/users/show">Home</a>
+      <a class="fas fa-users nav-link text-light" href="/users">Users</a>
+      <a class="fas fa-book-open nav-link text-light" href="/books">Books<</a>
+      <a class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out">Log out</a>
+    </div>
     <% else %>
-      <%= link_to "Bookers", '/top' %>
-      <div class ="pull-right p-2">
-      <i class="fa-solid fa-house-chimney"></i><%= link_to "Home", '/top' %>
-      <i class="fa-solid fa-link"></i><%= link_to "About",'/about' %>
-      <i class="fa-solid fa-user-plus"></i> <%= link_to "Sign Up", new_user_registration_path %>
-      <i class="fa-solid fa-right-to-bracket"></i><%= link_to "Log In", new_user_session_path %>
-      </div>
+      <a class="navbar-brand" href="/"><span>Bookers</span></a>
+      <a class="fas fa-home nav-link text-light" href="/users/show">Home</a>
+      <a class="fas fa-link nav-link text-light" href="/homes/about">About</a>
+      <a class="fas fa-user-plus nav-link text-light" href="/users/sign_up">Sign up</a>
+      <a class="fas fa-sign-in-alt nav-link text-light" href="/users/sign_in">Log in</a>
+    </div>
     <% end %>
     </nav>
     </nav>

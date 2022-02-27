@@ -27,13 +27,16 @@
 </tr>
 </tbody>
 </table>
-<div class = "btn btn-outline-secondary btn-block">
-<%= link_to edit_user_path(current_user.id) do %>
-<i class="fa-solid fa-user-gear"></i>
-<% end %>
-</div>
+<a class="btn btn-outline-secondary btn-block fas fa-user-cog" href="/users/:id/edit"></a>
 
-<%= render 'newform', book: @book %>
+<h1>New Book</h1>
+<%= form_with model: @book, local: true do |f| %>
+<p>Title</p>
+<%= f.text_field :title %>
+<p>opinion</p>
+<%= f.text_area :opinion %>
+<%= f.submit 'create book' %>
+<% end %>
 
 </div>
 
@@ -50,8 +53,11 @@
 <tbody>
 <% @books.each do |book| %>
 <tr>
-<td><% if book.user.profile_image.attached? %>
+<td>
+<% if book.user.profile_image.attached? %>
+<%= link_to user_path(book.user.id) do %>
 <%= image_tag book.user.get_profile_image(50,50) %>
+<% end %>
 <% end %>
 </td>
 <td><%= link_to book_path(book.id) do %>
@@ -59,7 +65,7 @@
 <% end %>
 </td>
 <td>
-<%= book.opinion %>
+<%= book.body %>
 <% end %>
 </td>
 </tr>
@@ -68,4 +74,4 @@
 </div>
 </div>
 </div>
-</div
+</div>

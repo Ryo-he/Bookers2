@@ -45,7 +45,7 @@ class BooksController < ApplicationController
    params.require(:user).permit(:name, :profile_image, :introduction)
   end
   def book_params
-   params.require(:book).permit(:title, :opinion)
+   params.require(:book).permit(:title, :body)
   end
   def baria_user
     unless Book.find(params[:id]).user.id.to_i == current_user.id

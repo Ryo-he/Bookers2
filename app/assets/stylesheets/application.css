@@ -10,7 +10,24 @@
  * It is generally better to create a new file per style scope.
  *
  */
-
-.navbar-brand{
-  color:white;
+ .text-light {
+    color: #f8f9fa !important;
+}
+.navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 0;
+}
+.fas {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 600;
+    line-height: normal;
+}
+.fas{
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
 }
