@@ -6,7 +6,7 @@
   <% end %>
   </ul>
   <% end %>
-<div class = "container px-5 px-sm-0">
+<div class = "container">
 <div class = "row">
 <div class= "col-md-3">
 <h1>User Info</h1>
@@ -26,28 +26,31 @@
 <th><%= @user.introduction %></th>
 </tr>
 </table>
-<a class="btn btn-outline-secondary btn-block fas fa-user-cog" href="/users/:id/edit"></a>
+
+<%= link_to edit_user_path(@user) do %>
+<i class ="btn btn-outline-secondary btn-block fas fa-user-cog"></i>
+<% end %>
 
 
-<h1>New Book</h1>
-<%= form_with model: @book, local: true do |f| %>
+<h1>New book</h1>
+<%= form_with model: @newbook, local: true do |f| %>
 <p>Title</p>
 <%= f.text_field :title %>
-<p>opinion</p>
-<%= f.text_area :opinion %>
-<%= f.submit 'create book' %>
+<p>Opinion</p>
+<%= f.text_area :body %>
+<%= f.submit 'Create Book' %>
 <% end %>
 
 </div>
-<div class = "col-md-8 off-set-md-1">
+<div class = "col-md-8 offset-md-1">
 <h1 class = "ml-5">Book detail</h1>
 <table class="table">
 <thead></thead>
 <tbody>
   <tr>
-   <th><%= link_to user_path(current_user.id) do %> 
+   <th><%= link_to user_path(@user.id) do %>
        <% if @user.profile_image.attached? %>
-       <%= image_tag @user.get_profile_image(50,50) %> 
+       <%= image_tag @user.get_profile_image(50,50) %>
        <br>
        <p><%= @user.name %></p>
        <% end %>
@@ -55,8 +58,14 @@
        </th>
        <th><%= link_to @book.title, book_path(@book.id) %></th>
        <th><%= @book.body %></th>
-       <th><%= link_to 'Edit', edit_book_path(@book.id) %></th>
-       <th><%= link_to 'Delete', book_path(@book), method: :delete, "data-confirm"=>"本当に消してもいいですか？" %>
+       <th><% if @user.id == current_user.id %>
+        <%= link_to "Edit",edit_book_path(@book.id),class:"btn btn-success btn-default btn-block" %>
+        <% end %>
+       <th><% if @user.id == current_user.id %>
+        <%= link_to book_path(@book), method: :delete, "data-confirm"=>"本当に消してもいいですか？" do %>
+            <div class= " destroy btn btn-danger btn-default btn-block" ><span class="glyphicon glyphicon-wrench" aria-hidden="true">Destroy</span></div>
+        <% end %>
+        <% end %>
        </th>
    </tr>
    </tbody>

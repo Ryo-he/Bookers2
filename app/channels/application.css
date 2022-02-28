@@ -10,24 +10,40 @@
  * It is generally better to create a new file per style scope.
  *
  */
- .text-light {
+.text-light {
     color: #f8f9fa !important;
 }
 .navbar-nav .nav-link {
     padding-right: 0;
     padding-left: 0;
 }
-.fas {
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 600;
-    line-height: normal;
+
+main{
+     display:block;
+   }
+   .container a{
+    width: 100%;
+    position:relative;
 }
-.fas{
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    line-height: 1;
+
+  .row{
+    display:flex;
+    flex-wrap:wrap;
+  }
+  .col-md-3{
+    position: relative;
+    width: 100%;
+  }
+  .ml-5{
+    padding:40px;
+  }
+.col-md-8{
+position: relative;
+    width: 100%;
+}
+.fa-home:before {
+    content: "\f015";
+}
+.fa-home a{
+    position:relative;
 }

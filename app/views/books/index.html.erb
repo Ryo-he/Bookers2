@@ -6,7 +6,7 @@
   <% end %>
   </ul>
   <% end %>
-<div class = "container px-5 px-sm-0">
+<div class = "container">
 <div class = "row">
 <div class= "col-md-3">
 <h1>User Info</h1>
@@ -27,20 +27,23 @@
 </tr>
 </tbody>
 </table>
-<a class="btn btn-outline-secondary btn-block fas fa-user-cog" href="/users/:id/edit"></a>
 
-<h1>New Book</h1>
+<%= link_to edit_user_path(current_user.id) do %>
+<i class ="btn btn-outline-secondary btn-block fas fa-user-cog"></i>
+<% end %>
+
+<h1>New book</h1>
 <%= form_with model: @book, local: true do |f| %>
 <p>Title</p>
 <%= f.text_field :title %>
-<p>opinion</p>
-<%= f.text_area :opinion %>
-<%= f.submit 'create book' %>
+<p>Opinion</p>
+<%= f.text_area :body %>
+<%= f.submit 'Create Book' %>
 <% end %>
 
 </div>
 
-<div class = "col-md-8 off-set-md-1">
+<div class = "col-md-8 offset-md-1">
 <h1 class = "ml-5">Books</h1>
 <table class="table">
 <thead>

@@ -9,6 +9,13 @@
    main{
      display:block;
    }
+   .container{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+　}
   .row{
     display:flex;
     flex-wrap:wrap;
@@ -22,3 +29,12 @@
   .ml-5{
     padding:40px;
   }
+  .col-md-8
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+　}
+　.fas a{
+　  position:relative;
+　}

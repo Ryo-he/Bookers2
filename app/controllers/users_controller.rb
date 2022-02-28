@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   end
   def show
    @user = User.find(params[:id])
-   @books = Book.where(user_id: current_user)
+   @books = Book.where(user_id: @user.id)
    @book = Book.new
   end
   def create
@@ -20,11 +20,18 @@ class UsersController < ApplicationController
 
   def index
    @users = User.all
-   @books = Book.where(user_id: current_user)
+   @books = Book.where(user_id: current_user.id)
    @book = Book.new
   end
   def edit
    @user = User.find(params[:id])
+   if @user.id == current_user.id
+    render:edit
+   else
+    @books = Book.where(user_id: @user.id)
+    @book = Book.new
+    redirect_to user_path(current_user.id)
+   end
   end
   def update
    @user = User.find(params[:id])
@@ -35,7 +42,7 @@ class UsersController < ApplicationController
    render:edit
   end
   end
-  
+
  private
   def user_params
   params.require(:user).permit(:name, :introduction, :profile_image)
