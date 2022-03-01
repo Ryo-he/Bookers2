@@ -16,7 +16,9 @@
     <nav class = "navbar">
     <% if user_signed_in? %>
     <div class = "container">
-      <a class= "navbar-brand text-light" href="/">Bookers</a>
+      <%= link_to "/",class:"text-light" do %>
+      <span>Bookers</span>
+      <% end %>
       <%= link_to user_path(current_user.id),class:"text-light" do %>
       <i class ="fas fa-home"></i>Home
       <% end %>
@@ -31,7 +33,9 @@
       <% end %>
     </div>
     <% else %>
-      <a class="navbar-brand text-light" href="/"><span>Bookers</span></a>
+      <%= link_to "/",class:"text-light" do %>
+      <span>Bookers</span>
+      <% end %>
       <%= link_to "/",class:"text-light" do %>
       <i class ="fas fa-home"></i>Home
       <% end %>
