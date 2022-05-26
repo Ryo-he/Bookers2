@@ -2,39 +2,45 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
  *{
-   margin:0;
-   padding:0;
-   box-sizing:border-box;
-   }
-   main{
-     display:block;
-   }
-   .container{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+
+
+  }
+  main {
+     display: block;
+  }
+  .container {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0 auto;
 　}
-  .row{
+
+  .row {
     display:flex;
     flex-wrap:wrap;
   }
-  .col-md-3{
+
+  .col-md-3 {
     position: relative;
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
   }
-  .ml-5{
-    padding:40px;
+
+  .ml-5 {
+    padding: 40px;
   }
-  .col-md-8
+
+  .col-md-8 {
     position: relative;
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
 　}
-　.fas a{
-　  position:relative;
+
+　.fas a {
+　  position: relative;
 　}
