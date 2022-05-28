@@ -55,7 +55,7 @@ group :test do
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'pry-byebug', group: :development
-
+gem 'jquery-rails'
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'

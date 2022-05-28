@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
-    
-    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_link_tag 'application',media: 'all','data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application',media: 'all','data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/0159f84572.js" crossorigin="anonymous"></script>
   </head>
@@ -58,6 +58,11 @@
     <%=flash[:notice]%>
     </div>
     <%= yield %>
+    <span id="back">
+    <a href="#">
+      <%= image_tag asset_path('arrow.png'), data: {"turbolinks"=>false},size: "50x50" %>
+    </a>
+    </span>
   </body>
   <footer class ="text-center mt-5">
       CopyRight Infratop.inc
